@@ -4,10 +4,20 @@
 	<div class="mx-auto w-full max-w-[var(--container)] px-5 py-6 max-md:px-3">
 		<div class="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
 			<div class="min-w-0">
-				<div
-					class="text-base font-semibold text-[var(--c-text-primary)]"
-				>
-					{{ metaTitle }}
+				<div class="flex items-center gap-3">
+					@if (metaImage) {
+					<img
+						class="block h-9 w-auto object-contain"
+						[src]="metaImage"
+						[attr.alt]="metaTitle"
+					/>
+					}
+
+					<div
+						class="text-base font-semibold text-[var(--c-text-primary)]"
+					>
+						{{ metaTitle }}
+					</div>
 				</div>
 
 				<p
@@ -15,98 +25,6 @@
 				>
 					<span [translate]="metaDescription"></span>
 				</p>
-
-				<div class="mt-4 flex flex-col gap-2">
-					<div
-						class="flex items-center justify-between gap-3 rounded-card border border-[var(--c-border)] bg-[var(--c-bg-tertiary)] px-3 py-2"
-					>
-						<div
-							class="text-[0.7rem] font-semibold tracking-wide uppercase text-[var(--c-text-muted)]"
-						>
-							<span translate>Режим</span>
-						</div>
-
-						<div
-							class="inline-flex overflow-hidden rounded-[var(--radius-btn)] border border-[var(--c-border)]"
-						>
-							@for (m of modes(); track m) {
-							<button
-								pButton
-								type="button"
-								[text]="mode() !== m"
-								(click)="setMode(m)"
-								[class]="{
-									'!text-[var(--c-text-muted)]': mode() !== m,
-									'hover:!text-[var(--c-text-primary)]': mode() !== m
-								}"
-								class="!cursor-pointer !rounded-none !px-3 !py-1.5 !text-[0.8rem] !font-semibold hover:!bg-[color-mix(in_srgb,var(--c-text-primary)_6%,transparent)]"
-							>
-								{{ m }}
-							</button>
-							}
-						</div>
-					</div>
-
-					<div
-						class="flex items-center justify-between gap-3 rounded-card border border-[var(--c-border)] bg-[var(--c-bg-tertiary)] px-3 py-2"
-					>
-						<div
-							class="text-[0.7rem] font-semibold tracking-wide uppercase text-[var(--c-text-muted)]"
-						>
-							<span translate>Щільність</span>
-						</div>
-
-						<div
-							class="inline-flex overflow-hidden rounded-[var(--radius-btn)] border border-[var(--c-border)]"
-						>
-							@for (d of densities(); track d) {
-							<button
-								pButton
-								type="button"
-								[text]="density() !== d"
-								(click)="setDensity(d)"
-								[class]="{
-									'!text-[var(--c-text-muted)]': density() !== d,
-									'hover:!text-[var(--c-text-primary)]': density() !== d
-								}"
-								class="!cursor-pointer !rounded-none !px-3 !py-1.5 !text-[0.8rem] !font-semibold hover:!bg-[color-mix(in_srgb,var(--c-text-primary)_6%,transparent)]"
-							>
-								{{ d }}
-							</button>
-							}
-						</div>
-					</div>
-
-					<div
-						class="flex items-center justify-between gap-3 rounded-card border border-[var(--c-border)] bg-[var(--c-bg-tertiary)] px-3 py-2"
-					>
-						<div
-							class="text-[0.7rem] font-semibold tracking-wide uppercase text-[var(--c-text-muted)]"
-						>
-							<span translate>Радіус</span>
-						</div>
-
-						<div
-							class="inline-flex overflow-hidden rounded-[var(--radius-btn)] border border-[var(--c-border)]"
-						>
-							@for (r of radiuses(); track r) {
-							<button
-								pButton
-								type="button"
-								[text]="radius() !== r"
-								(click)="setRadius(r)"
-								[class]="{
-									'!text-[var(--c-text-muted)]': radius() !== r,
-									'hover:!text-[var(--c-text-primary)]': radius() !== r
-								}"
-								class="!cursor-pointer !rounded-none !px-3 !py-1.5 !text-[0.8rem] !font-semibold hover:!bg-[color-mix(in_srgb,var(--c-text-primary)_6%,transparent)]"
-							>
-								{{ r }}
-							</button>
-							}
-						</div>
-					</div>
-				</div>
 			</div>
 
 			<nav [attr.aria-label]="'Навігація футера'" class="min-w-0">
@@ -117,7 +35,7 @@
 					Навігація
 				</div>
 
-				<ul class="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2">
+				<ul class="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2 lg:grid-cols-3">
 					@for (l of links(); track l.to) {
 					<li>
 						<a

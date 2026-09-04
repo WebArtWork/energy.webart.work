@@ -3,11 +3,11 @@
 
 	<div class="flex max-w-[560px] flex-col gap-4">
 		<h1 class="m-0 text-3xl font-bold text-[var(--c-text-primary)] md:text-4xl" translate>
-			Ласкаво просимо
+			Energy
 		</h1>
 
 		<p class="m-0 text-[var(--c-text-secondary)]" translate>
-			Керуйте своїм бізнесом в одному місці.
+			Лічильники, тарифи та рахунки — в одному місці для споживачів, інсталяторів, виробників і постачальників, тож витрати на енергію зрозумілі, а не приховані в паперових рахунках.
 		</p>
 	</div>
 
@@ -17,5 +17,18 @@
 		<a pButton routerLink="/for-installers" severity="secondary" translate>Для інсталяторів</a>
 		<a pButton routerLink="/for-producers" severity="secondary" translate>Для виробників енергії</a>
 		<a pButton routerLink="/for-suppliers" severity="secondary" translate>Для постачальників</a>
+	</div>
+
+	<div class="flex max-w-[720px] flex-col gap-3">
+		<h2 class="m-0 text-lg font-semibold text-[var(--c-text-primary)]" translate>Мережа Energy</h2>
+		<div class="flex flex-wrap items-center justify-center gap-2">
+			@for (role of roleLinks; track role.path) {
+				<a
+					[routerLink]="role.path"
+					class="rounded-full border border-[var(--c-border)] px-3 py-1 text-sm text-[var(--c-text-secondary)] no-underline hover:border-[var(--c-primary)] hover:text-[var(--c-primary)]"
+					[translate]="role.label"
+				></a>
+			}
+		</div>
 	</div>
 </main>
