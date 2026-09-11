@@ -21,6 +21,42 @@
 			}
 		</li>
 
+		<li class="inline-flex items-center max-md:hidden">
+			<app-nav-icon
+				routerLink="/for-consumers"
+				[name]="translateService.translate('Споживачам')()"
+				[ariaLabel]="translateService.translate('Споживачам')()"
+				icon="bolt"
+			/>
+		</li>
+
+		<li class="inline-flex items-center max-md:hidden">
+			<app-nav-icon
+				routerLink="/for-installers"
+				[name]="translateService.translate('Інсталяторам')()"
+				[ariaLabel]="translateService.translate('Інсталяторам')()"
+				icon="wrench"
+			/>
+		</li>
+
+		<li class="inline-flex items-center max-md:hidden">
+			<app-nav-icon
+				routerLink="/for-producers"
+				[name]="translateService.translate('Виробникам')()"
+				[ariaLabel]="translateService.translate('Виробникам')()"
+				icon="sun"
+			/>
+		</li>
+
+		<li class="inline-flex items-center max-md:hidden">
+			<app-nav-icon
+				routerLink="/for-suppliers"
+				[name]="translateService.translate('Постачальникам')()"
+				[ariaLabel]="translateService.translate('Постачальникам')()"
+				icon="truck"
+			/>
+		</li>
+
 		<li class="mx-auto max-md:hidden"></li>
 
 		@if (sidebarToggler()) {

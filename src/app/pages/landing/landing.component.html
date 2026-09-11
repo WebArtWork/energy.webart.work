@@ -1,34 +1,122 @@
-<main class="landing flex min-h-full flex-col items-center justify-center gap-8 p-6 text-center">
-	<icon-spider class="block w-[clamp(140px,25vw,280px)] h-auto" />
+<main class="landing flex min-h-full flex-col gap-16 px-6 py-10 md:px-10 md:py-16">
+	<section class="mx-auto flex w-full max-w-5xl flex-col items-center gap-6 text-center">
+		<icon-spider class="block h-auto w-[clamp(120px,20vw,200px)]" />
 
-	<div class="flex max-w-[560px] flex-col gap-4">
-		<h1 class="m-0 text-3xl font-bold text-[var(--c-text-primary)] md:text-4xl" translate>
-			Energy
+		<span
+			class="text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+			translate
+			>Мережа енергетичного ринку</span
+		>
+
+		<h1 class="m-0 max-w-2xl text-3xl leading-tight font-medium tracking-tight text-[var(--c-text-primary)] md:text-5xl">
+			<span translate>Споживачі, інсталятори,</span><br />
+			<span class="text-[var(--c-primary)]" translate>виробники й постачальники — разом.</span>
 		</h1>
 
-		<p class="m-0 text-[var(--c-text-secondary)]" translate>
-			Лічильники, тарифи та рахунки — в одному місці для споживачів, інсталяторів, виробників і постачальників, тож витрати на енергію зрозумілі, а не приховані в паперових рахунках.
+		<p class="m-0 max-w-md text-base leading-relaxed text-[var(--c-text-secondary)]" translate>
+			Energy об’єднує весь ринок енергосистем в одному місці: споживання,
+			монтаж, генерацію та обладнання видно без розрізнених дзвінків і
+			паперових рахунків.
 		</p>
-	</div>
 
-	<div class="flex flex-wrap items-center justify-center gap-3">
-		<a pButton routerLink="/sign" severity="primary" translate>Почати</a>
-		<a pButton routerLink="/for-consumers" severity="secondary" translate>Для споживачів</a>
-		<a pButton routerLink="/for-installers" severity="secondary" translate>Для інсталяторів</a>
-		<a pButton routerLink="/for-producers" severity="secondary" translate>Для виробників енергії</a>
-		<a pButton routerLink="/for-suppliers" severity="secondary" translate>Для постачальників</a>
-	</div>
+		<div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+			<a pButton routerLink="/sign" severity="primary" translate>Почати</a>
+			<a pButton routerLink="/for-consumers" severity="secondary" translate>Для споживачів</a>
+		</div>
+	</section>
 
-	<div class="flex max-w-[720px] flex-col gap-3">
-		<h2 class="m-0 text-lg font-semibold text-[var(--c-text-primary)]" translate>Мережа Energy</h2>
-		<div class="flex flex-wrap items-center justify-center gap-2">
-			@for (role of roleLinks; track role.path) {
-				<a
-					[routerLink]="role.path"
-					class="rounded-full border border-[var(--c-border)] px-3 py-1 text-sm text-[var(--c-text-secondary)] no-underline hover:border-[var(--c-primary)] hover:text-[var(--c-primary)]"
-					[translate]="role.label"
-				></a>
-			}
+	<div class="mx-auto w-full max-w-5xl border-y border-[var(--c-border)] py-6">
+		<div class="flex flex-wrap items-center justify-between gap-4 text-sm">
+			<span
+				class="text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+				translate
+				>Один ринок. Чотири ролі.</span
+			>
+			<div class="flex flex-wrap items-center gap-4 text-[var(--c-text-secondary)]">
+				<span translate>Споживання</span>
+				<b class="font-normal text-[var(--c-text-muted)]">+</b>
+				<span translate>Монтаж</span>
+				<b class="font-normal text-[var(--c-text-muted)]">+</b>
+				<span translate>Генерація</span>
+				<b class="font-normal text-[var(--c-text-muted)]">+</b>
+				<span translate>Обладнання</span>
+			</div>
 		</div>
 	</div>
+
+	<section class="mx-auto w-full max-w-5xl">
+		<div class="mb-8 flex flex-col gap-4">
+			<span
+				class="text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+				translate
+				>01 / Проблема</span
+			>
+			<h2 class="m-0 max-w-xl text-2xl leading-tight font-medium tracking-tight text-[var(--c-text-primary)] md:text-4xl">
+				<span translate>Енергетичний ринок досі тримається на дзвінках і паперових рахунках.</span>
+			</h2>
+			<p class="m-0 max-w-lg text-base leading-relaxed text-[var(--c-text-secondary)]" translate>
+				Споживач не бачить реальних тарифів. Інсталятор шукає замовлення
+				вручну. Виробник і постачальник не мають прямого виходу на
+				покупця. Energy з’єднує всіх чотирьох в одній системі.
+			</p>
+		</div>
+	</section>
+
+	<section class="mx-auto w-full max-w-5xl">
+		<div class="mb-8 flex flex-col gap-4">
+			<span
+				class="text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+				translate
+				>02 / Ролі на платформі</span
+			>
+			<h2 class="m-0 max-w-xl text-2xl leading-tight font-medium tracking-tight text-[var(--c-text-primary)] md:text-4xl" translate>
+				Для кожної ролі — свій набір інструментів.
+			</h2>
+		</div>
+
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+			@for (audience of audiences; track audience.path) {
+				<a
+					[routerLink]="audience.path"
+					class="flex flex-col gap-4 rounded-xl border border-[var(--c-border)] p-6 no-underline transition-colors hover:border-[var(--c-primary)]"
+				>
+					<div class="flex items-center justify-between">
+						<i class="pi {{ audience.icon }} text-2xl text-[var(--c-primary)]"></i>
+						<span class="text-xs text-[var(--c-text-muted)]">{{ audience.number }}</span>
+					</div>
+					<div class="flex flex-col gap-2">
+						<h3 class="m-0 text-base font-bold tracking-tight text-[var(--c-text-primary)]" [translate]="audience.title"></h3>
+						<p class="m-0 text-sm leading-relaxed text-[var(--c-text-secondary)]" [translate]="audience.description"></p>
+					</div>
+				</a>
+			}
+		</div>
+	</section>
+
+	<section class="mx-auto w-full max-w-5xl rounded-2xl bg-[var(--c-bg-secondary)] px-6 py-10 md:px-12 md:py-14">
+		<div class="flex flex-col gap-4">
+			<span
+				class="text-xs font-bold tracking-widest text-[var(--c-text-muted)] uppercase"
+				translate
+				>03 / Чому Energy</span
+			>
+			<h2 class="m-0 max-w-xl text-2xl leading-tight font-medium tracking-tight text-[var(--c-text-primary)] md:text-4xl" translate>
+				Одна мережа замість розрізнених контактів.
+			</h2>
+			<p class="m-0 max-w-lg text-base leading-relaxed text-[var(--c-text-secondary)]" translate>
+				Кожна угода, об’єкт і замовлення проходять через один профіль,
+				тож видно все: хто монтує, хто постачає, хто виробляє.
+			</p>
+		</div>
+	</section>
+
+	<section class="mx-auto flex w-full max-w-5xl flex-col items-center gap-6 rounded-2xl bg-[var(--c-primary)] px-6 py-12 text-center text-white md:px-16 md:py-16">
+		<h2 class="m-0 max-w-xl text-2xl leading-tight font-medium tracking-tight md:text-4xl" translate>
+			Приєднайтеся до мережі Energy.
+		</h2>
+		<div class="flex flex-wrap items-center justify-center gap-3">
+			<a pButton severity="contrast" routerLink="/sign" translate>Створити профіль</a>
+			<a pButton severity="secondary" routerLink="/for-suppliers" translate>Для постачальників</a>
+		</div>
+	</section>
 </main>

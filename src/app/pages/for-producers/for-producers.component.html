@@ -34,7 +34,7 @@
 			<p-accordion [multiple]="true">
 				@for (item of faq; track item.question) {
 					<p-accordionpanel [value]="item.question">
-						<p-accordionheader [panel]="$any(content)">{{ translateService.translate(item.question)() }}</p-accordionheader>
+						<p-accordionheader>{{ translateService.translate(item.question)() }}</p-accordionheader>
 						<p-accordioncontent #content>{{ translateService.translate(item.answer)() }}</p-accordioncontent>
 					</p-accordionpanel>
 				}
