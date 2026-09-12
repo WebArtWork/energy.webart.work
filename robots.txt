@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /$
+Allow: /share$
+Allow: /for-consumers$
+Allow: /for-installers$
+Allow: /for-producers$
+Allow: /for-suppliers$
+Allow: /sign$
+Disallow: /profile
+Disallow: /settings
+Disallow: /admin
+
+Sitemap: https://energy.webart.work/sitemap.xml

@@ -1,0 +1,1 @@
+import"./chunk-DkyeJLxd.js";import"./chunk-CYWkstv7.js";import{C as rd,D as ze,E as yc,S as qe,T as ud,_ as mn,a as Qi,b as oe,c as Yi,d as dd,f as fc,g as mc,h as ld,l as _c,m as lc,n as H,o as Ra,p as gc,r as La,s as Va,t as Cc,u as bc,v as nd,w as td,x as pc,y as od}from"./main-YZL2YN62.js";export{gc as clientsRoutes,bc as formRoutes,yc as formsRoutes,_c as usersRoutes};

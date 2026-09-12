@@ -1,0 +1,1 @@
+var t=[{path:``,loadComponent:()=>import(`./chunk-C-Nufhpq.js`).then(o=>o.ForProducersPageComponent)}];export{t as routes};
